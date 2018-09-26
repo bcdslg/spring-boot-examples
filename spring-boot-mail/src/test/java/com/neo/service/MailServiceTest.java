@@ -23,7 +23,7 @@ public class MailServiceTest {
 
     @Test
     public void testSimpleMail() throws Exception {
-        mailService.sendSimpleMail("ityouknow@126.com","test simple mail"," hello this is simple mail");
+        mailService.sendSimpleMail("1098287206@qq.com","test simple mail"," hello this is simple mail");
     }
 
     @Test
@@ -33,23 +33,23 @@ public class MailServiceTest {
                 "    <h3>hello world ! 这是一封html邮件!</h3>\n" +
                 "</body>\n" +
                 "</html>";
-        mailService.sendHtmlMail("ityouknow@126.com","test simple mail",content);
+        mailService.sendHtmlMail("1098287206@qq.com","test simple mail",content);
     }
 
     @Test
     public void sendAttachmentsMail() {
-        String filePath="e:\\tmp\\application.log";
-        mailService.sendAttachmentsMail("ityouknow@126.com", "主题：带附件的邮件", "有附件，请查收！", filePath);
+        String filePath="C:\\Users\\HP\\Desktop\\5a6832a272eb7.jpg";
+        mailService.sendAttachmentsMail("1098287206@qq.com", "主题：带附件的邮件", "有附件，请查收！", filePath);
     }
 
 
     @Test
     public void sendInlineResourceMail() {
-        String rscId = "neo006";
+        String rscId = "aobei007";
         String content="<html><body>这是有图片的邮件：<img src=\'cid:" + rscId + "\' ></body></html>";
-        String imgPath = "C:\\Users\\summer\\Pictures\\favicon.png";
+        String imgPath = "C:\\Users\\HP\\Desktop\\5a6832a272eb7.jpg";
 
-        mailService.sendInlineResourceMail("ityouknow@126.com", "主题：这是有图片的邮件", content, imgPath, rscId);
+        mailService.sendInlineResourceMail("1098287206@qq.com", "主题：这是有图片的邮件", content, imgPath, rscId);
     }
 
 
@@ -57,9 +57,9 @@ public class MailServiceTest {
     public void sendTemplateMail() {
         //创建邮件正文
         Context context = new Context();
-        context.setVariable("id", "006");
+        context.setVariable("id", "007");
         String emailContent = templateEngine.process("emailTemplate", context);
 
-        mailService.sendHtmlMail("ityouknow@126.com","主题：这是模板邮件",emailContent);
+        mailService.sendHtmlMail("1098287206@qq.com","主题：这是模板邮件",emailContent);
     }
 }
